@@ -9,6 +9,9 @@ import zipfile
 import io
 import ctypes
 
+# pip install requests Pillow yt_dlp
+# winget install Python.Python.3.14
+
 if not os.path.exists(".//Output"):
     os.makedirs(".//Output")
 if not os.path.exists(".//thumb-add"):
@@ -35,7 +38,7 @@ def check_ffmpeg_installed():
 
 def install_ffmpeg():
     print("Downloading FFmpeg build for Windows...")
-    url = "https://www.gyan.dev/ffmpeg/builds/ffmpeg-release-essentials.zip"
+    url = "https://github.com/GyanD/codexffmpeg/releases/download/8.0.1/ffmpeg-8.0.1-full_build.zip"
     response = requests.get(url)
     response.raise_for_status()
     print("Extracting FFmpeg...")
