@@ -1,2 +1,2 @@
-# yt-flac-all
-yt-dlp flac downloader
+# YT-FLAC-ALL
+Youtube to flac music file by python yt-dlp
