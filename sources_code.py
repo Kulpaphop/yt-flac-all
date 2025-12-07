@@ -144,7 +144,7 @@ def sel2(youtube_url):
     url_info(youtube_url)
     def _safe_filename(s): return re.sub(r'[<>:\\"/\\|?*]', '_', s)
     safe_title = _safe_filename(metadata['title'])
-    out_template = f"{safe_title}.%(ext)s"
+    out_template = f"{music_folder+safe_title}.%(ext)s"
     ydl_opts = {
         'extractaudio': True,
         'format': 'bestaudio',
@@ -247,7 +247,7 @@ def main():
                 print("Waiting for user add thumb.png image to thumb_add folder...\npress Enter to continue")
                 os.system("pause > nul" if os.name == "nt" else "")
                 if not os.path.exists(".//thumb-add//thumb.png"):
-                    print("No thumbnail image found in thumb-add folder. Exiting.")
+                    print("No thumbnail image found in thumb-add folder.")
                     os.system("pause" if os.name == "nt" else "")
                     continue
                 sel1(target_url)
@@ -257,13 +257,13 @@ def main():
             case _:
                 continue
         clear_temp_files()
-        break
+        os.system("pause" if os.name == "nt" else "")
     return
 
 
 if __name__ == "__main__":
     # INIT
-    os.system("title YouTube Audio Downloader Devlopment" if os.name == "nt" else "")
+    os.system("title YouTube Audio Downloader Development" if os.name == "nt" else "")
     
     if not is_admin():
         ctypes.windll.shell32.ShellExecuteW(
@@ -277,4 +277,5 @@ if __name__ == "__main__":
     main()
 
     # Before exit
+    clear_temp_files()
     os.system("echo Press any key to exit... && pause > nul" if os.name == "nt" else "")
